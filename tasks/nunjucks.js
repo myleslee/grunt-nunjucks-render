@@ -10,6 +10,7 @@
 
 module.exports = function (grunt) {
     var nunjucks = require('nunjucks');
+    const env = new nunjucks.Environment();
     var lib = require('nunjucks/src/lib');
     nunjucks.installJinjaCompat();
     env.addFilter('shorten', function(str, count) {
