@@ -11,6 +11,10 @@
 module.exports = function (grunt) {
     var nunjucks = require('nunjucks');
     var lib = require('nunjucks/src/lib');
+    nunjucks.installJinjaCompat();
+    env.addFilter('shorten', function(str, count) {
+    return str.slice(0, count || 5);
+  });
 
     grunt.registerMultiTask('nunjucks', 'Render nunjucks', function () {
         var data =  this.data.options && this.data.options.data;
